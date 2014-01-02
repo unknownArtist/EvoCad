@@ -3,7 +3,9 @@
 @section('main')
 
 <h1>Job Listings</h1>
-
+<div class="well">
+	{{ Form::open('url'=>'job/search','GET') }}
+</div>
 <p>{{ link_to_route('JobListings.create', 'Add new Job') }}</p>
 
 @if ($JobListings->count())
