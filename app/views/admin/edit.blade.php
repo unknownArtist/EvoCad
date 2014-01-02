@@ -1,9 +1,8 @@
 @extends('orchestra/foundation::layout.main')
 
 @section('content')
-<style type="text/css">
-
-</style>
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 @if ($errors->any())
             <div class="flash alert">
                 <ul>
@@ -80,7 +79,7 @@
         </li>
         <li> 
             {{ Form::label('published',"Publish this job in ")}}
-            {{ Form::text('publish','',array('id'=>'date-picker')) }}
+            {{ Form::text('publish','',array('class'=>'datepicker')) }}
         </li>
         
         <li>
@@ -116,6 +115,13 @@
     $(".navbar-nav:first-child").append('<li><a href="http://localhost:8000/admin/jobs">Jobs</a></li>');
     $(".navbar-nav:first-child").append('<li><a href="http://localhost:8000/admin/settings">Settings</a></li>');
     });
+
+     $('.datepicker').datepicker({
+
+            'format': 'yyyy-mm-dd'
+         })
 </script>
+
+ 
 
 @stop
