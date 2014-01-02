@@ -1,0 +1,35 @@
+{
+	"name": "orchestra/translation",
+	"description": "Orchestra Platform 2 Translation Component",
+	"license": "MIT",
+	"homepage": "http://orchestraplatform.com/docs/2.0/components/translation/",
+	"keywords": ["orchestra-platform", "orchestral", "laravel", "translation"],
+	"authors": [
+		{
+			"name": "Mior Muhammad Zaki",
+			"email": "crynobone@gmail.com",
+			"homepage": "https://github.com/crynobone"
+		}
+	],
+	"autoload": {
+		"psr-0": {
+			"Orchestra\\Translation" : "src/"
+		}
+	},
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"require-dev": {
+		"mockery/mockery": "0.8.0",
+		"illuminate/translation": "4.0.*"
+	},
+	"suggest": {
+		"laravel/framework": "Allow using orchestra/translation as added feature to illuminate/translation"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "2.1-dev"
+		}
+	},
+	"minimum-stability": "dev"
+}

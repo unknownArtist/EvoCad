@@ -1,0 +1,52 @@
+{
+	"name": "orchestra/foundation",
+	"description": "Orchestra Platform 2 Foundation Component",
+	"homepage": "http://orchestraplatform.com/docs/2.0/",
+	"keywords": ["orchestra-platform", "orchestral", "laravel"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Mior Muhammad Zaki",
+			"email": "crynobone@gmail.com",
+			"homepage": "https://github.com/crynobone"
+		}
+	],
+	"autoload": {
+		"psr-0": {
+			"Orchestra\\Foundation" : "src/"
+		},
+		"files": [
+			"src/helpers.php"
+		]
+	},
+	"require": {
+		"php": ">=5.3.3",
+		"laravel/framework": "4.0.*",
+		"orchestra/asset": "2.0.*",
+		"orchestra/auth": "2.0.*",
+		"orchestra/debug": "2.0.*",
+		"orchestra/extension": "2.0.*",
+		"orchestra/facile": "2.0.*",
+		"orchestra/html": "2.0.*",
+		"orchestra/memory": "2.0.*",
+		"orchestra/model": "2.0.*",
+		"orchestra/optimize": "2.0.*",
+		"orchestra/resources": "2.0.*",
+		"orchestra/support": "2.0.*",
+		"orchestra/translation": "2.0.*",
+		"orchestra/view": "2.0.*",
+		"orchestra/widget": "2.0.*"
+	},
+	"require-dev": {
+		"mockery/mockery": "0.8.0",
+		"orchestra/testbench": "2.0.*",
+		"twbs/bootstrap": "3.0.*@stable",
+		"packagist/yuicompressor-bin": "2.4.8"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "2.1-dev"
+		}
+	},
+	"minimum-stability": "dev"
+}
