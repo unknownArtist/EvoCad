@@ -5,7 +5,7 @@
 <table class="table table-striped table-bordered">
  	@foreach($jobs as $job)
  	<tr>
- 	
+ 		
  		<td><img src="/uploads/company_logo/{{ $job->company_logo }}" alt="..." class="img-thumbnail"></td>
  		<td>{{ $job->job_title }}</td>
  	
@@ -53,10 +53,11 @@
 		$("div .container").html("<h2>Admin Listings</h2>");
 
 		 /*-------------------------------------*/
-    $(".navbar-nav:first-child").append('<li><a href="http://localhost:8000/admin/extensions">Extensions</a></li>');
-    $(".navbar-nav:first-child").append('<li><a href="http://localhost:8000/admin/users">Users</a></li>');
-    $(".navbar-nav:first-child").append('<li><a href="http://localhost:8000/admin/jobs">Jobs</a></li>');
-    $(".navbar-nav:first-child").append('<li><a href="http://localhost:8000/admin/settings">Settings</a></li>');
+
+    $(".navbar-nav:first-child").append('<li><a href="/admin/extensions">Extensions</a></li>');
+    $(".navbar-nav:first-child").append('<li><a href="/admin/users">Users</a></li>');
+    $(".navbar-nav:first-child").append('<li><a href="/admin/jobs">Jobs</a></li>');
+    $(".navbar-nav:first-child").append('<li><a href="/admin/settings">Settings</a></li>');
     });
 
 </script>

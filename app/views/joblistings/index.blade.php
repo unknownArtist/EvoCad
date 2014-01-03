@@ -4,7 +4,9 @@
 
 <h1>Job Listings</h1>
 <div class="well">
-	{{ Form::open('url'=>'job/search','GET') }}
+	{{ Form::open(array('url'=>'job/search','GET')) }}
+		{{ Form::text('search') }}
+	{{ Form::close() }}
 </div>
 <p>{{ link_to_route('JobListings.create', 'Add new Job') }}</p>
 
