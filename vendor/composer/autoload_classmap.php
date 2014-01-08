@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddColumnApprovedInJobListings' => $baseDir . '/app/database/migrations/2013_12_31_114837_add_column_approved_in_joblistings.php',
+    'AddDisapproveReasonToJoblistingTable' => $baseDir . '/app/database/migrations/2014_01_06_142833_add_disapprove_reason_to_joblisting_table.php',
     'AddPublishedToPropertyTable' => $baseDir . '/app/database/migrations/2014_01_01_180517_add_published_to_property_table.php',
     'AspectMock\\Core\\Mocker' => $vendorDir . '/codeception/aspect-mock/src/AspectMock/Core/Mocker.php',
     'AspectMock\\Core\\Registry' => $vendorDir . '/codeception/aspect-mock/src/AspectMock/Core/Registry.php',

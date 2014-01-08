@@ -9,7 +9,18 @@ class JoblistingController extends BaseController {
 	 */
 	public function getIndex()
 	{	
-		$jobLstng = JobListing::all();
+		$location 	= Input::get('location');
+		$jobType  	= Input::get('jobType');
+		$searchTerm = Input::get('searchTerm');
+		if($location || $jobType || $searchTerm)
+		{
+			$jobLstng = JobListing::search($jobType, $location, $searchTerm);
+		}
+		else
+		{
+			$jobLstng = JobListing::all();
+		}
+		
         return View::make('joblistings.index')
         		   ->with('JobListings',$jobLstng);
 	}
@@ -43,6 +54,14 @@ class JoblistingController extends BaseController {
 		$id = Request::segment(2);
 		return View::make('joblistings.details')
 				   ->with('job',JobListing::find($id));
+	}
+
+	public function getSearch()
+	{
+		$location 	= Input::get('location');
+		$jobType  	= Input::get('jobType');
+		$searchTerm = Input::get('searchTerm');
+		$results = JobListing::search($jobType, $location, $searchTerm);
 	}
 
 	

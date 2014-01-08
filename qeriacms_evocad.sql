@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 02, 2014 at 11:53 AM
+-- Generation Time: Jan 08, 2014 at 12:07 PM
 -- Server version: 5.5.34-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.4
 
@@ -42,21 +42,21 @@ CREATE TABLE IF NOT EXISTS `JobListings` (
   `company_descripton` text COLLATE utf8_unicode_ci NOT NULL,
   `company_logo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `approved` tinyint(1) NOT NULL,
+  `disapprove_reason` text COLLATE utf8_unicode_ci NOT NULL,
   `published` date NOT NULL,
   `term_and_conditions` tinyint(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `JobListings`
 --
 
-INSERT INTO `JobListings` (`id`, `job_title`, `job_type`, `job_description`, `job_location`, `job_relocation`, `job_remotely`, `job_apply_by`, `job_instruction`, `company_name`, `company_name_status`, `company_url`, `company_descripton`, `company_logo`, `approved`, `published`, `term_and_conditions`, `created_at`, `updated_at`) VALUES
-(1, 'Golang', 'remote', 'dsfsdf', 'lousiana', 1, 0, '0', 'dsfsdfsd', 'nexuss', 1, 'www.google.com', 'sdfsdf', 'change-5223-39212-1-zoom.jpg', 0, '0000-00-00', 1, '2013-12-26 13:10:59', '2013-12-26 13:10:59'),
-(2, 'Django development', 'Internship', 'intern', 'pakistan', 1, 1, 'rooott@gmail.com', 'lsdkjfl', 'lose', 1, 'www.nexus.com', 'jsldkjf', 'Rung-Barsey-By-Nyla-Eid-Dresses-2013-002.jpg', 0, '0000-00-00', 1, '2013-12-26 13:58:26', '2013-12-26 13:58:26'),
-(3, 'Laravel', 'Internship', 'sdfsdfsdf', 'pakistan', 1, 1, 'rooott@gmail.com', 'sdfds', 'jello corp', 1, 'www.nexus.comm', 'sdfsd', 'image6868250301388588257.jpg', 0, '0000-00-00', 1, '2014-01-01 09:57:37', '2014-01-01 09:57:37');
+INSERT INTO `JobListings` (`id`, `job_title`, `job_type`, `job_description`, `job_location`, `job_relocation`, `job_remotely`, `job_apply_by`, `job_instruction`, `company_name`, `company_name_status`, `company_url`, `company_descripton`, `company_logo`, `approved`, `disapprove_reason`, `published`, `term_and_conditions`, `created_at`, `updated_at`) VALUES
+(1, 'Golangg', 'Internship', 'dsfsdf', 'lousiana', 1, 0, 'www.youtube.com', 'dsfsdfsd', 'nexuss', 1, 'www.google.com', 'sdfsdf', 'change-5223-39212-1-zoom.jpg', 0, '', '2014-01-07', 1, '2013-12-26 13:10:59', '2013-12-26 13:10:59'),
+(2, 'Django development', 'Internship', 'intern', 'pakistan', 1, 1, 'www.google.com', 'lsdkjfl', 'lose', 1, 'www.nexus.com', 'jsldkjf', 'Rung-Barsey-By-Nyla-Eid-Dresses-2013-002.jpg', 0, '', '2014-01-08', 1, '2013-12-26 13:58:26', '2013-12-26 13:58:26');
 
 -- --------------------------------------------------------
 

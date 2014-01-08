@@ -27,7 +27,7 @@ class JobsController extends BaseController {
 		
 		unset($fields['methodURLEmail']);
 
-		if(Input::get('company_logo'))
+		if(Input::file('company_logo'))
 		{
 			if(Input::get('company_logo') != Input::get('logo'))
 			{
@@ -42,8 +42,34 @@ class JobsController extends BaseController {
 		{ 
 			return Redirect::to('admin/job/'.$id.'/edit')->withErrors($v)->withInput();
 		}
-
+		
 		DB::table('JobListings')->where('id',$id)->update($fields);
 			return Redirect::to('admin/jobs')->with('message',"Job updated successfully");
+	}
+	public function getDeleteJobPost()
+	{
+		$jl = JobListing::find(Request::segment(3));
+		if($jl->delete())
+		{
+			return Redirect::to('admin/jobs')->with('message','Job Deleted Successfully');
+		}
+	}
+	public function postDisApprove()
+	{
+		$jl = JobListing::find(Input::get('id'));
+
+		if(Input::get('approval_status') == 1)
+		{
+			$jl->disapprove_reason = Input::get('disapprove_reason');
+			$jl->approved = 0;
+
+		}else
+			{
+				$jl->disapprove_reason = Input::get('disapprove_reason');
+				$jl->approved = 1;
+			}
+			$jl->save();
+			return Redirect::to('admin/jobs'); 
+
 	}
 }

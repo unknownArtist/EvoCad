@@ -11,6 +11,8 @@
 |
 */
 /*------------------------------Admin routes-------------------------------*/
+Route::get('admin/job/{id}/delete',array('before'=>'auth','uses'=>'JobsController@getDeleteJobPost'));
+Route::post('admin/job/disapprove',array('before'=>'auth','uses'=>'JobsController@postDisApprove'));
 Route::get('admin/job/{id}/edit',array('before'=>'auth','uses'=>'JobsController@getEdit'));
 Route::post('admin/job/update',array('before'=>'auth','uses'=>'JobsController@postEdit'));
 Route::get('admin/jobs',array('before'=>'auth','uses'=>'JobsController@getIndex'));
@@ -18,6 +20,7 @@ Route::get('admin/jobs',array('before'=>'auth','uses'=>'JobsController@getIndex'
 
 
 /*-------------------------------------------------------------------------*/
+Route::get('job/search',array('uses'=>'JoblistingController@getSearch'));
 Route::get('job/{id}/detail',array('uses'=>'JoblistingController@getDetails'));
 Route::get('job/list',array('uses'=>'JoblistingController@getIndex'));
 Route::get('job/create',array('uses'=>'JoblistingController@getCreate','as'=>'JobListings.create'));

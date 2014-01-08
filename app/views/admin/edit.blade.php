@@ -19,9 +19,9 @@
             {{ Form::text('job_title') }}
         </li>
 
-        <li>
-            {{ Form::label('job_type', 'Job Type:') }}<br>
-            {{ Form::text('job_type') }}
+         <li>
+            {{ Form::label('job_type', 'Job Type:') }}
+            {{ Form::select('job_type',array('Full-time'=>'Full-time','Internship'=>'Internship')) }}
         </li>
 
         <li>
@@ -43,6 +43,10 @@
             {{ Form::label('job_remotely', 'Work can be done from anywhere(i.e telecommuting') }}<br>
             {{ Form::checkbox('job_remotely') }}
         </li>
+         <li>
+            {{ Form::label('job_apply_by', 'How to apply?') }}
+            {{ Form::select('methodURLEmail',array('URL'=>'URL','Email'=>'Email'),'',array('id'=>'method')) }}
+        </li>
 
         <li>
             {{ Form::label('url', 'URL',array('id'=>'jobAppBy')) }}<br>
@@ -60,7 +64,7 @@
         </li>
 
         <li>
-            {{ Form::label('company_name_status', 'Company_name_status:') }}<br>
+            {{ Form::label('company_name_status', 'Hide company name:') }}<br>
             {{ Form::checkbox('company_name_status') }}
         </li>
 
@@ -81,7 +85,7 @@
         </li>
         <li> 
             {{ Form::label('published',"Publish this job in ")}}<br>
-            {{ Form::text('publish','',array('class'=>'datepicker')) }}
+            {{ Form::text('published',$job->published,array('class'=>'datepicker')) }}
         </li>
         
         <li>
@@ -123,7 +127,7 @@
     }
     );
 </script>
-
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
  
 
 @stop

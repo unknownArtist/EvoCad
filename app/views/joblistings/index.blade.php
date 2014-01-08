@@ -4,7 +4,13 @@
 
 <h1>Job Listings</h1>
 <div class="well">
-	{{ Form::open('url'=>'job/search','GET') }}
+	{{ Form::open(array('url'=>'job/list','method'=>'GET')) }}
+		{{ Form::select('jobType',array(''=>'>>Select Job Type','Internship'=>'Internship','Full-time'=>'Full-time'),Input::get('jobType')) }}
+		{{ Form::text('location',Input::get('location'),array('placeholder'=>'Location')) }}
+		{{ Form::text('searchterm',Input::get('searchterm'),array('placeholder'=>'Search','class'=>'pull-right'))}}<br>
+		{{ Form::submit('Filter',array('class'=>'btn btn-success pull-right'))}}
+	{{ Form::close() }}
+	{{ HTML::link('job/list','Clear',array('class'=>'btn btn-primary'))}}
 </div>
 <p>{{ link_to_route('JobListings.create', 'Add new Job') }}</p>
 
