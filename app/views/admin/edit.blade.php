@@ -4,7 +4,17 @@
 
 {{ HTML::script('js/bootstrap-datepicker.js')}}
 {{ HTML::style('css/datepicker.css')}}
- 
+
+
+{{ HTML::style('src/bootstrap-wysihtml5.css')}}
+{{ HTML::script('lib/js/wysihtml5-0.3.0.js')}}
+
+{{ HTML::script('lib/js/bootstrap.min.js')}}
+{{ HTML::script('src/bootstrap3-wysihtml5.js')}}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script type="text/javascript">
+    
+</script>
 @if ($errors->any())
             <div class="flash alert">
                 <ul>
@@ -26,7 +36,7 @@
 
         <li>
             {{ Form::label('job_description', 'Description:') }}<br>
-            {{ Form::text('job_description') }}
+            {{ Form::textarea('job_description') }}
         </li>
 
         <li>
@@ -55,7 +65,7 @@
 
         <li>
             {{ Form::label('job_instruction', 'Job_instruction:') }}<br>
-            {{ Form::textarea('job_instruction') }}
+            {{ Form::text('job_instruction') }}
         </li>
 
         <li>
@@ -65,8 +75,8 @@
 
         <li>
             {{ Form::label('company_name_status', 'Hide company name:') }}<br>
-            {{ Form::checkbox('company_name_status') }}
-        </li>
+            <input type="checkbox" id="agentshow" name="company_name_status" value="0"/>
+                    </li>
 
         <li>
             {{ Form::label('company_url', 'Company_url:') }}<br>
@@ -75,7 +85,7 @@
 
         <li>
             {{ Form::label('company_descripton', 'Company_descripton:') }}<br>
-            {{ Form::textarea('company_descripton') }}
+            {{ Form::textarea('company_descripton','', array('id' => 'some-textarea')) }}
         </li>
 
         <li>
@@ -88,10 +98,7 @@
             {{ Form::text('published',$job->published,array('class'=>'datepicker')) }}
         </li>
         
-        <li>
-            {{ Form::label('term_and_conditions', 'Term_and_conditions:') }}<br>
-            {{ Form::checkbox('term_and_conditions') }}
-        </li>
+       
 
 		<li>
             {{ Form::hidden('id',$job->id) }}
@@ -107,14 +114,22 @@
 		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
 	</ul>
 @endif
+
 <script>
     $(document).ready(function(){
+        
 
         $('#method').change(function(){
 
             $('#jobAppBy').html($('#method').val());
         });
-
+$("#agentshow").click(function(){
+     if($(this).is(':checked')){
+          $(this).val('1');
+     }else{
+          $(this).val('0');
+     }
+});
     /*-------------------------------------*/
     $(".navbar-nav:first-child").append('<li><a href="http://localhost:8000/admin/extensions">Extensions</a></li>');
     $(".navbar-nav:first-child").append('<li><a href="http://localhost:8000/admin/users">Users</a></li>');

@@ -25,9 +25,23 @@
 
 	<img src="/uploads/company_logo/{{ $job->company_logo }}" alt="..." class="img-thumbnail">
 
-		<div class="col-md-8">{{ HTML::link('job/'.$job->id.'/detail',$job->job_title) }}</div>
+		<div class="col-md-12">{{ HTML::link('job/'.$job->id.'/detail',$job->job_title) }}</div>
+		<?php $status=$job->company_name_status; ?>
+		@if($status == 0 )
 		{{ $job->company_name }}
+		@else
+		{{'company name'}}
+		@endif
+		
+		
+			&nbsp; 	&nbsp; 	&nbsp; 	&nbsp;&nbsp; 	&nbsp; 	&nbsp; 	&nbsp;&nbsp; 	&nbsp; 	&nbsp; 	&nbsp;
+			&nbsp; 	&nbsp; 	&nbsp; 	&nbsp;&nbsp; 	&nbsp; 	&nbsp; 	&nbsp;&nbsp; 	&nbsp; 	&nbsp; 	&nbsp;
+			{{ $job->job_description }}
+		
 		<div class="col-md-4 pull-right">
+			
+					{{ $job->company_url }}<br/>
+					
 			{{ $job->job_location }},
 			{{ $job->job_type }}
 		</div>
