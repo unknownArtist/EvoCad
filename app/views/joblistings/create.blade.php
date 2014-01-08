@@ -57,9 +57,9 @@
         </li>
 
         <li>
-            {{ Form::label('company_name_status', 'Hide the company name') }}
-            {{ Form::checkbox('company_name_status') }}
-        </li>
+            {{ Form::label('company_name_status', 'Hide company name:') }}<br>
+            <input type="checkbox" id="agentshow" name="company_name_status" value="0"/>
+                    </li>
 
         <li>
             {{ Form::label('company_url', 'Company URL') }}
@@ -96,6 +96,13 @@
 
             $('#jobAppBy').html($('#method').val());
         });
+        $("#agentshow").click(function(){
+     if($(this).is(':checked')){
+          $(this).val('1');
+     }else{
+          $(this).val('0');
+     }
+});
     });
 </script>
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">

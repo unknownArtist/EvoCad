@@ -18,7 +18,7 @@ class JobListing extends Eloquent {
 		'company_url' => 'required',
 		'company_descripton' => 'required',
 		'company_logo' => 'required',
-		'term_and_conditions' => 'required'
+		// 'term_and_conditions' => 'required'
 	);
 
 	public function getStatus($status)
