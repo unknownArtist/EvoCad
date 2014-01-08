@@ -30,7 +30,7 @@
 		@if($status == 0 )
 		{{ $job->company_name }}
 		@else
-		{{'company name'}}
+		{{'Undiscolsed'}}
 		@endif
 		
 		
@@ -41,7 +41,7 @@
 		<div class="col-md-4 pull-right">
 			
 					{{ $job->company_url }}<br/>
-					
+
 			{{ $job->job_location }},
 			{{ $job->job_type }}
 		</div>
