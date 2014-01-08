@@ -14,7 +14,7 @@
 
 
 
-	 		<td>{{ $job->company_name }} </td>
+	 		<td>{{ $job->company_name }}</td>
 	 		<td>{{ $job->job_location }}</td>
 	 		<td><a href="#myModal{{$job->id}}" role="button" class="btn" data-toggle="modal">
 	 			{{ $job->getApprovalStatus($job->id) }}</a>
