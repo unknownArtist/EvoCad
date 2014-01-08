@@ -4,11 +4,14 @@
 
 <table class="table table-striped table-bordered">
  	@foreach($jobs as $job)
-	 	<tr>
-	 		
-	 		<td><img src="/uploads/company_logo/{{ $job->company_logo }}" alt="..." class="img-thumbnail"></td>
-	 		<td>{{ $job->job_title }}</td>
-	 	
+
+
+ 	<tr>
+ 		
+ 		<td><img src="/uploads/company_logo/{{ $job->company_logo }}" alt="..." class="img-thumbnail"></td>
+ 		<td>{{ $job->job_title }}</td>
+ 	
+
 
 
 	 		<td>{{ $job->company_name }} </td>
@@ -69,10 +72,8 @@
     $(".navbar-nav:first-child").append('<li><a href="/admin/users">Users</a></li>');
     $(".navbar-nav:first-child").append('<li><a href="/admin/jobs">Jobs</a></li>');
     $(".navbar-nav:first-child").append('<li><a href="/admin/settings">Settings</a></li>');
-    /*-----------------------------------------------------------------------------------*/
 
     /*-----------------------------------------------------------------------------------*/
-
 
     });
 
