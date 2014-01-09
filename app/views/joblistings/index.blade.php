@@ -39,8 +39,12 @@
 			{{ $job->job_description }}
 		
 		<div class="col-md-4 pull-right">
+			<?php $url =$job->company_url;
 			
+			
+			?>
 					{{ $job->company_url }}<br/>
+
 
 			{{ $job->job_location }},
 			{{ $job->job_type }}

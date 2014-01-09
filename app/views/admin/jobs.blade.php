@@ -19,6 +19,8 @@
 	 		<td><a href="#myModal{{$job->id}}" role="button" class="btn" data-toggle="modal">
 	 			{{ $job->getApprovalStatus($job->id) }}</a>
 	 		</td>
+	 		<td>  <input type="checkbox" id="agentshow" name="company_name_status" value="0"/></td>
+	 		<td>  <input type="hidden"  name="company_name_status1" value="<?php echo $job->id ?>"/></td>
 
 	 		<td> {{ HTML::link('admin/job/'.$job->id.'/edit','Edit') }} | {{ HTML::link('admin/job/'.$job->id.'/delete','Delete') }}</td>
 	 	
@@ -65,6 +67,13 @@
 	$(document).ready(function(){
 
 		$("div .container").html("<h2>Admin Listings</h2>");
+		 $("#agentshow").click(function(){
+     if($(this).is(':checked')){
+          $(this).val('1');
+     }else{
+          $(this).val('0');
+     }
+});
 
 		 /*-------------------------------------*/
 
