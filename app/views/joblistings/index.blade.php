@@ -39,9 +39,11 @@
 			{{ $job->job_description }}
 		
 		<div class="col-md-4 pull-right">
-			
+			@if($status == 0 )
 					{{ $job->company_url }}<br/>
-
+			@else
+				{{ 'Undisclosed' }}
+			@endif, 
 			{{ $job->job_location }},
 			{{ $job->job_type }}
 		</div>
