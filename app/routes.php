@@ -12,6 +12,7 @@
 */
 /*------------------------------Admin routes-------------------------------*/
 Route::get('admin/job/{id}/delete',array('before'=>'auth','uses'=>'JobsController@getDeleteJobPost'));
+Route::post('admin/approve/all',array('before'=>'auth','uses'=>'JobsController@postApproveAll'));
 Route::post('admin/job/disapprove',array('before'=>'auth','uses'=>'JobsController@postDisApprove'));
 Route::get('admin/job/{id}/edit',array('before'=>'auth','uses'=>'JobsController@getEdit'));
 Route::post('admin/job/update',array('before'=>'auth','uses'=>'JobsController@postEdit'));

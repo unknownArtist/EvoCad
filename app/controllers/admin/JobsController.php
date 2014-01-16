@@ -23,9 +23,13 @@ class JobsController extends BaseController {
 		unset($fields['logo']);
 		$fields['job_relocation'] = Input::get('job_relocation');
 		$fields['job_remotely'] = Input::get('job_remotely');
-		$fields['company_name_status'] = Input::get('company_name_status');
-		
+
+		$fields['company_descripton'] = Input::get('company_descripton');
 		unset($fields['methodURLEmail']);
+		if(Input::get('company_name_status') == NULL)
+		{
+			$fields['company_name_status'] = 0;
+		}
 
 		if(Input::file('company_logo'))
 		{
@@ -43,6 +47,7 @@ class JobsController extends BaseController {
 			return Redirect::to('admin/job/'.$id.'/edit')->withErrors($v)->withInput();
 		}
 		
+
 		DB::table('JobListings')->where('id',$id)->update($fields);
 			return Redirect::to('admin/jobs')->with('message',"Job updated successfully");
 	}
@@ -71,5 +76,9 @@ class JobsController extends BaseController {
 			$jl->save();
 			return Redirect::to('admin/jobs'); 
 
+	}
+	public function postApproveAll()
+	{
+		
 	}
 }

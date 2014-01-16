@@ -3,24 +3,24 @@
 @section('content')
 
 <table class="table table-striped table-bordered">
+
  	@foreach($jobs as $job)
 
 
  	<tr>
- 		
+ 		<td><input type="checkbox"  class="chkID" data-id={{ $job->id }}> </td>
  		<td><img src="/uploads/company_logo/{{ $job->company_logo }}" alt="..." class="img-thumbnail"></td>
  		<td>{{ $job->job_title }}</td>
  	
 
 
 
-	 		<td>{{ $job->company_name }} </td>
+	 		<td>{{ $job->company_name }}</td>
 	 		<td>{{ $job->job_location }}</td>
 	 		<td><a href="#myModal{{$job->id}}" role="button" class="btn" data-toggle="modal">
 	 			{{ $job->getApprovalStatus($job->id) }}</a>
 	 		</td>
-	 		<td>  <input type="checkbox" id="agentshow" name="company_name_status" value="0"/></td>
-	 		<td>  <input type="hidden"  name="company_name_status1" value="<?php echo $job->id ?>"/></td>
+	 		
 
 	 		<td> {{ HTML::link('admin/job/'.$job->id.'/edit','Edit') }} | {{ HTML::link('admin/job/'.$job->id.'/delete','Delete') }}</td>
 	 	
@@ -61,10 +61,41 @@
 		  		</div>
 		</div>
 	</div>
+		
  	@endforeach
+ 	<input type="checkbox" id="selectall">
+ 	{{ Form::label('selectall','Select All')}}
+
 </table>
+{{ Form::open(array('url'=>'admin/approve/all','POST')) }}
+
+	{{ Form::hidden('approveId','',array('id'=>'approveID')) }}
+	{{ Form::submit('Approve All',array('class'=>'btn btn-success'))}}
+{{ Form::close() }}
+
 <script>
 	$(document).ready(function(){
+
+	$("#selectall").change(function(){
+	    var status = $(this).is(":checked") ? true : false;
+	    $(".chkID").prop("checked",status);
+	    
+	
+	    var vals = new Array();
+    $("input:checkbox").each(function(){
+  
+	    if($(this).is(":checked")){
+
+	        
+	    	vals.push($(this).data("id"));
+	        
+	    }
+	});
+	console.log(vals);
+});
+
+
+
 
 		$("div .container").html("<h2>Admin Listings</h2>");
 		 $("#agentshow").click(function(){

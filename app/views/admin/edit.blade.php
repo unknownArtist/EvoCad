@@ -75,8 +75,9 @@
 
         <li>
             {{ Form::label('company_name_status', 'Hide company name:') }}<br>
-            <input type="checkbox" id="agentshow" name="company_name_status" value="0"/>
-                    </li>
+           <!--  <input type="checkbox" id="agentshow" name="company_name_status" checked={{ $job->company_name_status }}/> -->
+           {{ Form::checkbox('company_name_status')}}
+         </li>
 
         <li>
             {{ Form::label('company_url', 'Company_url:') }}<br>
@@ -85,7 +86,7 @@
 
         <li>
             {{ Form::label('company_descripton', 'Company_descripton:') }}<br>
-            {{ Form::textarea('company_descripton','', array('id' => 'some-textarea')) }}
+            {{ Form::textarea('company_descripton',$job->company_descripton, array('id' => 'some-textarea')) }}
         </li>
 
         <li>
