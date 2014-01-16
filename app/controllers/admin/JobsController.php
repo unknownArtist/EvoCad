@@ -4,8 +4,22 @@ class JobsController extends BaseController {
 
 	public function getIndex()
 	{
+
+		$location 	= Input::get('location');
+	    $jobapproval  	= Input::get('jobapproval'); 
+		$searchTerm = Input::get('searchterm');
+		if($location || $jobapproval || $searchTerm)
+		{
+			$jobLstng = JobListing::adminSearch($jobapproval, $location, $searchTerm);
+		}
+		else
+		{	
+
+			$jobLstng = JobListing::paginate(15);
+		}
+
 		return View::make('admin.jobs')
-				   ->with('jobs',JobListing::paginate(15));
+				   ->with('jobs',$jobLstng);
 	}
 	public function getEdit()
 	{
@@ -77,8 +91,30 @@ class JobsController extends BaseController {
 			return Redirect::to('admin/jobs'); 
 
 	}
+
+	public function getApproveAll()
+	{	
+		$jobs = Input::get('jobs');
+
+		foreach($jobs as $job)
+		{
+
+			
+			if(!empty($job))
+			{
+
+				$jl = JobListing::find($job);
+				$jl->approved = 1;
+				$jl->save();	
+			}
+			
+		}
+		return Response::json(array('status'=>200));
+}
+
 	public function postApproveAll()
 	{
+
 		
 	}
 }
