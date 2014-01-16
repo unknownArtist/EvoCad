@@ -41,28 +41,55 @@ class JobListing extends Eloquent {
 		return "Approve";
 	}
 	public static function search($type = NULL, $location = NULL, $searchTerm = NULL)
-	{
-		$table = new JobListing();
+	{	
+		$table = DB::table('JobListings');
 
-		if(isset($type))
+		if(!empty($type))
 		{
 			$result = $table->where('job_type',$type);
 		}
-		if(isset($location))
-		{
-			$result = $table->where('job_location',$location);
+		if(!empty($location))
+		{ 
+			$result = $table->where('job_location','LIKE','%'.$location.'%');
 		}
-		if(isset($searchTerm))
-		{
+		if(!empty($searchTerm))
+		{ 
 			$result = $table->where('job_title','LIKE','%'.$searchTerm.'%')
-							->orwhere('job_type','LIKE','%'.$searchTerm.'%')
-							->orwhere('job_location','LIKE','%'.$searchTerm.'%')
-							->orwhere('job_desctiption','LIKE','%'.$searchTerm.'%')
-							->orwhere('company_name','LIKE','%'.$searchTerm.'%')
-							->orwhere('company_desctiption','LIKE','%'.$searchTerm.'%');
+							->orWhere('job_type','LIKE','%'.$searchTerm.'%')
+							->orWhere('job_location','LIKE','%'.$searchTerm.'%')
+							->orWhere('job_description','LIKE','%'.$searchTerm.'%')
+							->orWhere('company_name','LIKE','%'.$searchTerm.'%')
+							->orWhere('company_descripton','LIKE','%'.$searchTerm.'%');
 
 		}
 
+		return $result->get();
+	}
+
+	public static function adminSearch($jobapproval = NULL, $location = NULL, $searchTerm = NULL)
+	{
+		$table = new JobListing();
+
+		if(!empty($jobapproval))
+		{ 
+			if($jobapproval == 99)
+				$jobapproval = 0;
+			$result = $table->where('approved',$jobapproval);
+		}
+		if(!empty($location))
+		{ 
+			$result = $table->where('job_location','LIKE','%'.$location.'%');
+		}
+		if(!empty($searchTerm))
+		{ 
+			$result = $table->where('job_title','LIKE','%'.$searchTerm.'%')
+							->orWhere('job_type','LIKE','%'.$searchTerm.'%')
+							->orWhere('job_location','LIKE','%'.$searchTerm.'%')
+							->orWhere('job_description','LIKE','%'.$searchTerm.'%')
+							->orWhere('company_name','LIKE','%'.$searchTerm.'%')
+							->orWhere('company_descripton','LIKE','%'.$searchTerm.'%');
+
+		}
 		return $result->get();
 	}
 	public function getApprovalStatus($id)

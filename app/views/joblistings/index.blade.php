@@ -19,7 +19,7 @@
 </div>
 <p>{{ link_to_route('JobListings.create', 'Add new Job') }}</p>
 
-@if ($JobListings->count())
+@if ($JobListings)
 <div class="row show-grid">
 	@foreach ($JobListings as $job)
 

@@ -11,13 +11,14 @@ class JoblistingController extends BaseController {
 	{	
 		$location 	= Input::get('location');
 		$jobType  	= Input::get('jobType');
-		$searchTerm = Input::get('searchTerm');
+		$searchTerm = Input::get('searchterm');
 		if($location || $jobType || $searchTerm)
 		{
 			$jobLstng = JobListing::search($jobType, $location, $searchTerm);
 		}
 		else
-		{
+		{	
+
 			$jobLstng = JobListing::all();
 		}
 		
@@ -57,10 +58,11 @@ class JoblistingController extends BaseController {
 	}
 
 	public function getSearch()
-	{
+	{  die("jsldkjfl");
 		$location 	= Input::get('location');
 		$jobType  	= Input::get('jobType');
 		$searchTerm = Input::get('searchTerm');
+
 		$results = JobListing::search($jobType, $location, $searchTerm);
 	}
 
