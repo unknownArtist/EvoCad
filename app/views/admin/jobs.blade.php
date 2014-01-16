@@ -34,6 +34,7 @@
 	 			{{ $job->getApprovalStatus($job->id) }}	
 			</a>
 	 		</td>
+	 		
 
 	 		<td> {{ HTML::link('admin/job/'.$job->id.'/edit','Edit') }} | {{ HTML::link('admin/job/'.$job->id.'/delete','Delete') }}</td>
 	 	
@@ -79,10 +80,18 @@
  	
 
 </table>
+<<<<<<< HEAD
 
 	<input type="checkbox" id="selectall">
  	{{ Form::label('selectall','Approve All')}}
 
+=======
+{{ Form::open(array('url'=>'admin/approve/all','POST')) }}
+
+	{{ Form::hidden('approveId','',array('id'=>'approveID')) }}
+	{{ Form::submit('Approve All',array('class'=>'btn btn-success'))}}
+{{ Form::close() }}
+>>>>>>> 6f49e6876844c8bd36a1776f0c5a7bb19d7bb5b8
 
 <script>
 	$(document).ready(function(){
@@ -119,6 +128,13 @@
 
 
 		$("div .container").html("<h2>Admin Listings</h2>");
+		 $("#agentshow").click(function(){
+     if($(this).is(':checked')){
+          $(this).val('1');
+     }else{
+          $(this).val('0');
+     }
+});
 
 		 /*-------------------------------------*/
 

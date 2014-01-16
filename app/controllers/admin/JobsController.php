@@ -91,6 +91,7 @@ class JobsController extends BaseController {
 			return Redirect::to('admin/jobs'); 
 
 	}
+
 	public function getApproveAll()
 	{	
 		$jobs = Input::get('jobs');
@@ -109,6 +110,10 @@ class JobsController extends BaseController {
 			
 		}
 		return Response::json(array('status'=>200));
+}
+
+	public function postApproveAll()
+	{
 
 		
 	}

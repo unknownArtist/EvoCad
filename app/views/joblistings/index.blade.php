@@ -39,11 +39,21 @@
 			{{ $job->job_description }}
 		
 		<div class="col-md-4 pull-right">
+<<<<<<< HEAD
+			<?php $url =$job->company_url;
+			
+			
+			?>
+					{{ $job->company_url }}<br/>
+
+
+=======
 			@if($status == 0 )
 					{{ $job->company_url }}<br/>
 			@else
 				{{ 'Undisclosed' }}
 			@endif, 
+>>>>>>> 2734f91475a38eee3eb4a1511467425fb2cf0e51
 			{{ $job->job_location }},
 			{{ $job->job_type }}
 		</div>
