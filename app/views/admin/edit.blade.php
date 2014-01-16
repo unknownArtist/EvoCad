@@ -85,7 +85,7 @@
         </li>
 
         <li>
-            {{ Form::label('company_descripton', 'Company_descripton:') }}<br>
+            {{ Form::label('company_descripton', 'Company Descripton:') }}<br>
             {{ Form::textarea('company_descripton',$job->company_descripton, array('id' => 'some-textarea')) }}
         </li>
 

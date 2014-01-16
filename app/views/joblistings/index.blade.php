@@ -39,14 +39,14 @@
 			{{ $job->job_description }}
 		
 		<div class="col-md-4 pull-right">
-
+			<?php
+			 $url =  $job->job_apply_by ;
+			?>
 			
-					{{ $job->company_url }}<br/>
-
-
 
 			@if($status == 0 )
-					{{ $job->company_url }}<br/>
+			<a href="{{URL::to($url)}}">
+					{{ $job->job_apply_by }}</a><br/>
 			@else
 				{{ 'Undisclosed' }}
 			@endif, 

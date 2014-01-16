@@ -80,18 +80,18 @@
  	
 
 </table>
-<<<<<<< HEAD
+
 
 	<input type="checkbox" id="selectall">
  	{{ Form::label('selectall','Approve All')}}
 
-=======
+
 {{ Form::open(array('url'=>'admin/approve/all','POST')) }}
 
 	{{ Form::hidden('approveId','',array('id'=>'approveID')) }}
 	{{ Form::submit('Approve All',array('class'=>'btn btn-success'))}}
 {{ Form::close() }}
->>>>>>> 6f49e6876844c8bd36a1776f0c5a7bb19d7bb5b8
+
 
 <script>
 	$(document).ready(function(){
